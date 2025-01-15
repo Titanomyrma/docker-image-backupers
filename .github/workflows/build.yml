@@ -43,7 +43,7 @@ jobs:
           push: true
           # TODO change url
           tags: |
-            ghcr.io/titanomyrma/packages/postgres:17.2-bookworm
+            ghcr.io/titanomyrma/docker-image-backupers/postgres:17.2-bookworm
 
   gitea:
     name: gitea
@@ -77,4 +77,4 @@ jobs:
           push: true
           # TODO change url
           tags: |
-            ghcr.io/titanomyrma/packages/gitea:1.23.1
+            ghcr.io/titanomyrma/docker-image-backupers/gitea:1.23.1
