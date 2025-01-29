@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  runner:
+    image: docker.io/gitea/act_runner:latest
+    environment:
+      # Generate this with act-runner binary, before using this docker-compose.
+      CONFIG_FILE: /config.yaml
+      GITEA_INSTANCE_URL: "gitea:3000"
+      # You can take it from Gitea repository/organisation/global settings.
+      GITEA_RUNNER_REGISTRATION_TOKEN: "${token}"
+      # Must follow format: <"repositoryName" or "organisationName" or "global">-<"cached" or "notCached">
+      GITEA_RUNNER_NAME: "test"
+      # Supported operating systems/architectures.
+      GITEA_RUNNER_LABELS: "${RUNNER_LABELS}"
+    networks:
+      - gitea-network
+    volumes:
+      - ./config.yaml:/config.yaml
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+networks:
+  gitea-network:
+    external: true
