@@ -1,11 +1,6 @@
 name: build
 
-on:
-  push:
-    branches:
-      - main
-    tags:
-      - 'v*'
+on: workflow_dispatch
 
 env:
   BASE_DEV_VERSION: 1.0.0
