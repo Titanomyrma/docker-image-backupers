@@ -8,3 +8,4 @@ iptables -D FORWARD -i tun0 -o enp1s0 -j DROP
 iptables -D FORWARD -i lo -o tun0 -j ACCEPT
 iptables -D FORWARD -i tun0 -o lo -j DROP
 iptables -D INPUT -i wlp2s0 -p udp --dport 1194 -j ACCEPT
+iptables -D FORWARD -i tun0 -o wlp2s0 -d 192.168.31.168 -p tcp --dport 3000 -j ACCEPT
